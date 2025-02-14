@@ -6,6 +6,7 @@ use App\Models\Chirp;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\View\View;
 
 class ChirpController extends Controller
@@ -15,10 +16,16 @@ class ChirpController extends Controller
      */
     public function index(): View
     {
-        return view('chirps.index', [
-            'chirps' => Chirp::with('user')->latest()->get(),
+        return view('chirps', [
+            // 'chirps' => Chirp::with('user')->latest()->get(),
         ]);
     }
+
+    // public function index(): Response
+    // {
+    //     return response('Hello World');
+    // }
+
 
     /**
      * Show the form for creating a new resource.
